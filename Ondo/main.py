@@ -1,3 +1,10 @@
+"""
+温湿度センサー：AHT21B
+表示器　　　　：ssd1306(I2C)
+
+
+
+"""
 from machine import Pin, I2C
 import ssd1306
 import time
@@ -23,7 +30,7 @@ def do_connect():
     if not sta_if.isconnected():
         print('connecting to network...')
         sta_if.active(True)
-        sta_if.connect('Buffalo-G-9D38', 'uutwmsvarr3uv')
+        sta_if.connect('ESSID', 'PASS')
         while not sta_if.isconnected():
             pass
     print('network config:', sta_if.ifconfig())
