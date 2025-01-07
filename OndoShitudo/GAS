@@ -1,0 +1,14 @@
+const SS = SpreadsheetApp.openById('xxxxxxxxxxxxxxxxxxxxxxx'); /*** シートID で特定 ***/
+const sheet = SS.getSheets()[0];
+
+console.log(sheet);
+
+function doGet(e) {
+  var yyyymmdd = e.parameter.yyyymmdd;
+  var jikoku = e.parameter.jikoku;
+  var temp = e.parameter.temp;
+  var humid = e.parameter.humid;
+  sheet.appendRow([yyyymmdd,jikoku,temp,humid]);
+  var str = "Success";
+  SpreadsheetApp.flush();
+  return ContentService.createTextOutput(str);
